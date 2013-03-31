@@ -5,6 +5,7 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class SlickSokoban extends BasicGame {
@@ -80,8 +81,6 @@ public class SlickSokoban extends BasicGame {
 	public void init(GameContainer gc) throws SlickException {
 		
 		game = new Sokoban(level2);
-		game.print_map(game.getMap());
-		
 		
 		wall = new Image("img/brick16x16.png");
 		player = new Image("img/player16x16.png");
@@ -94,8 +93,28 @@ public class SlickSokoban extends BasicGame {
 	
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		// TODO Auto-generated method stub
 		
+		Input input = gc.getInput();
+		
+		if(input.isKeyPressed(input.KEY_W)){
+			game.update_player_location(game.getX_loc(), game.getY_loc()-1);
+		}
+		
+		if(input.isKeyPressed(input.KEY_A)){
+			game.update_player_location(game.getX_loc()-1, game.getY_loc());
+		}
+		
+		if(input.isKeyPressed(input.KEY_S)){
+			game.update_player_location(game.getX_loc(), game.getY_loc()+1);
+			
+		}
+		
+		if(input.isKeyPressed(input.KEY_D)){
+			game.update_player_location(game.getX_loc()+1, game.getY_loc());
+		}
+		
+		
+	
 	}
 
 	@Override

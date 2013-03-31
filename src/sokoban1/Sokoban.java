@@ -62,14 +62,12 @@ public class Sokoban {
 	
 	public Character[][] getPlayerLocation(){
 		
-		x_loc = 0;
-		y_loc = 0;
-		
 		for (int i = 0; i < hoyde; i++) {
 			for (int j = 0; j < bredde; j++) {
 				if(map[i][j] == player){
 					x_loc = j;
 					y_loc = i;
+					
 				}
 			}
 		}
@@ -93,7 +91,7 @@ public class Sokoban {
 	public  boolean is_valid_move(int x, int y){
 		
 
-		if(map[x][y] == wall){
+		if(map[y][x] == wall){
 			System.out.println("Not a valid move!");
 			return false;
 
