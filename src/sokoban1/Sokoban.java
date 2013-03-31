@@ -15,11 +15,12 @@ public class Sokoban {
 
 	protected String string_map;
 	
-	public int bredde;
-	public int hoyde;
+	private int bredde;
+	private int hoyde;
 	
-	public int x_loc = 0;
-	public int y_loc = 0;
+	private int x_loc = 0;
+
+	private int y_loc = 0;
 	
 	public Sokoban(String string_map){
 		
@@ -117,6 +118,39 @@ public class Sokoban {
 	public void setPlayer_location(Character[][] player_location) {
 		this.player_location = player_location;
 	}
+
+	public int getBredde() {
+		return bredde;
+	}
+
+	public void setBredde(int bredde) {
+		this.bredde = bredde;
+	}
+
+	public int getHoyde() {
+		return hoyde;
+	}
+
+	public void setHoyde(int hoyde) {
+		this.hoyde = hoyde;
+	}
+
+	public int getX_loc() {
+		return x_loc;
+	}
+
+	public void setX_loc(int x_loc) {
+		this.x_loc = x_loc;
+	}
+
+	public int getY_loc() {
+		return y_loc;
+	}
+
+	public void setY_loc(int y_loc) {
+		this.y_loc = y_loc;
+	}
+
 	
 	//main for testing
 //	public static void main (String []args){

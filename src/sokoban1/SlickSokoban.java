@@ -14,33 +14,82 @@ public class SlickSokoban extends BasicGame {
 	Image box 			= null;
 	Image box_on_target = null;
 	Image target 		= null;
+	Image cobble			= null;
+	Image player_on_target = null;
 	
 	int map_width = 0;
 	int map_height = 0;
+	
+	String level2 = "########|#@ #.  #|# $#   #|#  #  *#|#  # $##|#    .##|########";
+	Sokoban game;
 
 	public SlickSokoban() {
 		super("Sokoban");
 	}
 	
 	public void render_map(){
-		wall.draw(400, 0);
-		wall.draw(16, 0);
-		wall.draw(16, 16);
-		player.draw(200, 100);
-		box.draw(200, 200);
-		box_on_target.draw(200, 300);
-		target.draw(200, 400);
 		
+		map_width = game.getBredde()*16;
+		map_height = game.getHoyde()*16;
+		
+		Character[][] char_map = game.getMap();
+		
+		int x = 200;
+		int y = 200;
+		
+		for (int i = 0; i < game.getHoyde(); i++) {
+			for (int j = 0; j < game.getBredde(); j++) {
+				if(char_map[i][j]== '#'){
+					wall.draw(x, y);
+					x += 16;
+				}
+				
+				if(char_map[i][j]== '@'){
+					player.draw(x, y);
+					x += 16;
+				}
+				if(char_map[i][j]== '+'){
+					player_on_target.draw(x, y);
+					x += 16;
+				}
+				
+				if(char_map[i][j]== '*'){
+					box_on_target.draw(x, y);
+					x += 16;
+				}
+				
+				if(char_map[i][j] == '$'){
+					box.draw(x, y);
+					x += 16;	
+				}
+				if(char_map[i][j] == ' '){
+					cobble.draw(x, y);
+					x += 16;	
+				}
+				if(char_map[i][j] == '.'){
+					target.draw(x, y);
+					x += 16;	
+				}
+			}
+			x = 200;
+			y+= 16;
+		}
 	}
 	
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		
+		game = new Sokoban(level2);
+		game.print_map(game.getMap());
+		
+		
 		wall = new Image("img/brick16x16.png");
 		player = new Image("img/player16x16.png");
+		player_on_target = new Image("img/player16x16.png"); 
 		box = new Image("img/redball16x16.png");
 		box_on_target = new Image("img/greenball16x16.png");
 		target = new Image("img/target16x16.png");
+		cobble = new Image("img/cobble16x16.png");
 	}
 	
 	@Override
