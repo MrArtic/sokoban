@@ -77,9 +77,53 @@ public class Sokoban {
 		
 	}
 	
-	public void update_player_location (int x, int y){
+	public void update_player_location (int x, int y){ // x, y is new coordinates
 		
 		if(is_valid_move(x, y)){
+			
+			if(map[y][x] == box){//check if box is on coordinates
+				
+				//move box south
+				if((y_loc+1 == y) && (is_valid_move(x, y+1))){
+					map[y_loc][x_loc] = ' ';
+					map[y+1][x] = box;
+					map[y][x] = player;
+					getPlayerLocation();
+					return;
+				}
+				
+				//move box north
+				if(y_loc-1 == y){
+					map[y_loc][x_loc] = ' ';
+					map[y-1][x] = box;
+					map[y][x] = player;
+					getPlayerLocation();
+					return;
+				}
+				
+				//move box west
+				if(x_loc-1 == x){
+					map[y_loc][x_loc] = ' ';
+					map[y][x-1] = box;
+					map[y][x] = player;
+					getPlayerLocation();
+					return;
+				}
+				
+				//move box east
+				if(x_loc+1 == x){
+					map[y_loc][x_loc] = ' ';
+					map[y][x+1] = box;
+					map[y][x] = player;
+					getPlayerLocation();
+					return;
+				}
+				
+				
+				
+			}
+			
+			//regular move
 			map[y_loc][x_loc] = ' ';
 			map[y][x] = player;
 			getPlayerLocation();
@@ -97,7 +141,7 @@ public class Sokoban {
 
 
 		}
-		
+				
 		return true;
 	}
 	

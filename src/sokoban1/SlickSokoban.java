@@ -21,7 +21,7 @@ public class SlickSokoban extends BasicGame {
 	int map_width = 0;
 	int map_height = 0;
 	
-	String level2 = "########|#@ #.  #|# $#   #|#  #  *#|#  # $##|#    .##|########";
+	String level2 = "########|#@ #.  #|# $#   #|#  #  *#|#    $##|#    .##|########";
 	Sokoban game;
 
 	public SlickSokoban() {
