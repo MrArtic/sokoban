@@ -9,8 +9,10 @@ public class Sokoban {
 	public static final char box				= '$';
 	public static final char box_on_target		= '*';
 	
-	public Character[][] map;
-	public Character[][] player_location;
+	private Character[][] map;
+	private Character[][] player_location;
+	
+
 	protected String string_map;
 	
 	public int bredde;
@@ -23,9 +25,10 @@ public class Sokoban {
 		
 		this.string_map = string_map;
 		
-		map = string_to_map(string_map);
-		player_location = new Character[hoyde][bredde]; //lager et array av samme st¿rrelse som map
-		player_location = getPlayerLocation(); //legger in spiller-lokasjon
+//		map = string_to_map(string_map);
+		this.setMap(string_to_map(string_map));
+		player_location = new Character[hoyde][bredde]; //make an array for player location
+		player_location = getPlayerLocation(); //adds player location to player_location map
 	}
 	
 	//prints the map of characters to terminal
@@ -97,6 +100,22 @@ public class Sokoban {
 		}
 		
 		return true;
+	}
+	
+	public Character[][] getMap() {
+		return map;
+	}
+
+	public void setMap(Character[][] map) {
+		this.map = map;
+	}
+
+	public Character[][] getPlayer_location() {
+		return player_location;
+	}
+
+	public void setPlayer_location(Character[][] player_location) {
+		this.player_location = player_location;
 	}
 	
 	//main for testing

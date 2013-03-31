@@ -12,14 +12,12 @@ public class ConsoleSokoban implements KeyListener {
 		
 		Sokoban test = new Sokoban(level2);
 		
-		while(true){
-			
-		}
+
 		
-//		test.print_map(test.map);
-//		test.update_player_location(1, 2);
-//		test.print_map(test.map);
-//		test.update_player_location(0, 2);
+		test.print_map(test.getMap());
+		test.update_player_location(1, 2);
+		test.print_map(test.getMap());
+		test.update_player_location(0, 2);
 	}
 
 	@Override
