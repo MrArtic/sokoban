@@ -1,9 +1,6 @@
 package sokoban1;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-public class ConsoleSokoban implements KeyListener {
+public class ConsoleSokoban  {
 	
 	public static void main(String []args){
 		
@@ -18,27 +15,6 @@ public class ConsoleSokoban implements KeyListener {
 		test.update_player_location(1, 2);
 		test.print_map(test.getMap());
 		test.update_player_location(0, 2);
-	}
-
-	@Override
-	public void keyPressed(KeyEvent k) {
-		// TODO Auto-generated method stub
-		if(k.getKeyCode() == k.VK_UP){
-			System.out.println("up");
-		}
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
