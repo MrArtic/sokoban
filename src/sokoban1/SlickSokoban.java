@@ -96,20 +96,20 @@ public class SlickSokoban extends BasicGame {
 		
 		Input input = gc.getInput();
 		
-		if(input.isKeyPressed(input.KEY_W)){
+		if(input.isKeyPressed(input.KEY_W)||(input.isKeyPressed(input.KEY_UP))){
 			game.update_player_location(game.getX_loc(), game.getY_loc()-1);
 		}
 		
-		if(input.isKeyPressed(input.KEY_A)){
+		if(input.isKeyPressed(input.KEY_A)||(input.isKeyPressed(input.KEY_LEFT))){
 			game.update_player_location(game.getX_loc()-1, game.getY_loc());
 		}
 		
-		if(input.isKeyPressed(input.KEY_S)){
+		if(input.isKeyPressed(input.KEY_S)||(input.isKeyPressed(input.KEY_DOWN))){
 			game.update_player_location(game.getX_loc(), game.getY_loc()+1);
 			
 		}
 		
-		if(input.isKeyPressed(input.KEY_D)){
+		if(input.isKeyPressed(input.KEY_D)||(input.isKeyPressed(input.KEY_RIGHT))){
 			game.update_player_location(game.getX_loc()+1, game.getY_loc());
 		}
 		

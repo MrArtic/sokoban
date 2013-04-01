@@ -22,6 +22,8 @@ public class Sokoban {
 
 	private int y_loc = 0;
 	
+	private int holes = 0;
+	
 	public Sokoban(String string_map){
 		
 		this.string_map = string_map;
@@ -30,6 +32,8 @@ public class Sokoban {
 		this.setMap(string_to_map(string_map));
 		player_location = new Character[hoyde][bredde]; //make an array for player location
 		player_location = getPlayerLocation(); //adds player location to player_location map
+		holes_to_win();
+		System.out.println(holes);
 	}
 	
 	//prints the map of characters to terminal
@@ -75,6 +79,18 @@ public class Sokoban {
 		player_location[y_loc][x_loc] = '@';
 		return player_location;
 		
+	}
+	
+	public void holes_to_win(){
+		
+		for (int i = 0; i < hoyde; i++) {
+			for (int j = 0; j < bredde; j++) {
+				if((map[i][j] == target) ||(map[i][j] == box_on_target)){
+					holes++;
+					
+				}
+			}
+		}
 	}
 	
 	public void update_player_location (int x, int y){ // x, y is new coordinates
