@@ -143,6 +143,8 @@ public class Sokoban {
 				
 			}
 			
+
+			
 			//regular move
 			map[y_loc][x_loc] = ' ';
 			map[y][x] = player;
@@ -152,14 +154,18 @@ public class Sokoban {
 		
 	}
 	
-	public  boolean is_valid_move(int x, int y){
+	public boolean is_valid_move(int x, int y){
 		
 
 		if(map[y][x] == wall){
-			System.out.println("Not a valid move!");
+			System.out.println("Not a valid move! Wall");
 			return false;
 
-
+		}
+		
+		if((map[y][x] == box)){
+			System.out.println("Not a valid move! Box - x:"+x+",y:"+y);
+			return false;
 		}
 				
 		return true;

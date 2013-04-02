@@ -112,8 +112,6 @@ public class SlickSokoban extends BasicGame {
 		if(input.isKeyPressed(input.KEY_D)||(input.isKeyPressed(input.KEY_RIGHT))){
 			game.update_player_location(game.getX_loc()+1, game.getY_loc());
 		}
-		
-		
 	
 	}
 
