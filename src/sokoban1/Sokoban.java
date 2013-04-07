@@ -55,6 +55,7 @@ public class Sokoban {
 		hoyde = rader.length;
 		
 		map = new Character[hoyde][bredde];
+
 		
 		for (int i = 0; i < hoyde; i++) {
 			for (int j = 0; j < bredde; j++) {
@@ -155,7 +156,6 @@ public class Sokoban {
 	}
 	
 	public boolean is_valid_move(int x, int y){
-		
 
 		if(map[y][x] == wall){
 			System.out.println("Not a valid move! Wall");
@@ -163,12 +163,41 @@ public class Sokoban {
 
 		}
 		
-		if((map[y][x] == box)){
-			System.out.println("Not a valid move! Box - x:"+x+",y:"+y);
+		if((MovingBoxIntoBox(x, y))){
+			
 			return false;
 		}
+
 				
 		return true;
+	}
+	
+	public boolean MovingBoxIntoBox(int x, int y){
+		
+		if(map[y][x] != box){
+			return false;
+		}
+		//move box south
+		if(y_loc+1 == y){
+			if(map[y+1][x] == box)System.out.println("box in the way"); return true;
+		}
+		
+		//move box north
+		if(y_loc-1 == y){
+			if(map[y-1][x] == box)System.out.println("box in the way"); return true;
+		}
+		
+		//move box west
+		if(x_loc-1 == x){
+			if(map[y][x-1] == box)System.out.println("box in the way"); return true;
+		}
+		
+		//move box east
+		if(x_loc+1 == x){
+			if(map[y][x+1] == box)System.out.println("box in the way"); return true;
+		}
+		
+		return false;
 	}
 	
 	public Character[][] getMap() {
